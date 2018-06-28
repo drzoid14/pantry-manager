@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 app.use(express.static('public'));
 //app.listen(process.env.PORT || 8080);
-const {PORT} = require('./config')
+const {PORT, DATABASE_URL} = require('./config')
 const mongoose = require('mongoose');
 
 let server;
@@ -40,5 +40,9 @@ function runServer(databaseUrl, port = PORT) {
     });
   }
 
+  if (require.main === module) {
+    runServer(DATABASE_URL).catch(err => console.error(err));
+  }
+  
 
   module.exports = { runServer, app, closeServer };
