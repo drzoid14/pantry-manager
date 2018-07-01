@@ -1,2 +1,11 @@
 language: node_js
 node_js: node
+services:
+  - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: NBgLp9qXXypydoro+NgushMTNHvBzYuxBIqyLDkuQQi0cbPJ9ibpNwGwBKPwErgiLPEalSTAZ6xChI/dQTRuoDN7ZWgMHM+NNaXsBNC+YjAHhe0cHjPAd7jNLMX98svybZ0W3U+UmoKnaazQiozL9W6Zj+RhJ3LuaGRar38Mij4jrxoYtmeyGR0n/JTswLK0Apez24AiinimlBMq9qFk9S8eO8Ff7RDaRY9E+or2/icjmT8reLsKInuhketUW4BEunsF4jZKlAW9w62ug4yMKI5UezI/Vxm2TrQMANQ/j0JcAIU3qWAmOKwqQleilN1d3JstCy+QG/V0lB5N/SncG9KehSDZOrdD6yEPsxLLAUYTB6ScpQIMuAZ+eKX7H4AbJkS/n7zrOsjLHyT4dvHRRyHrxqIGc0HB4oKIbtXQ2KA/wak67M9VoCEe8MnN20PfX56m0RO5cgggROchEB4XoT94BNatmSN+Ts1M82OX65OralOrbV8heYIm0TkjrCtYSoR8+aTHk6IWfH+YbXH/0hWiE6qUiaWt1ymerjX4H0wgxyaMfvc1SDWSnxXIYXwCTX9tpZUEI7CI2X69hwVHz8pB/cUqolL0O2qnRnFPiGHXn6OhYb/i5DP0aZGESkNmp6CRO2dQ3F6dotKK4DjCktmyZPeq7ipSdJ7BCyEvx8Q=
+  app: instock-pantry-app
+  on:
+    repo: drzoid14/pantry-manager
