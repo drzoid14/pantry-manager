@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Hello World</title>
+    <title>Pantry Manager</title>
 </head>
+
 <body>
-<p>
-    Hello World!
-</p>
+    <header role='banner'>Pantry Manager</header>
+    <main role='main'>
+        <form action="action_page.php">
+            <div class="container">
+                <label for="uname">
+                    <b>Email</b>
+                </label>
+                <input type="text" placeholder="Email" name="uname" required>
+
+                <label for="psw">
+                    <b>Password</b>
+                </label>
+                <input type="password" placeholder="Password" name="psw" required>
+
+                <button type="submit" onclick='login'>Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember Me
+                </label>
+            </div>
+        </form>
+    </main>
 </body>
+<script src="index.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </html>

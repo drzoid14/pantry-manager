@@ -10,12 +10,28 @@
 <body>
     <header role="banner">Pantry Manager</header>
     <main role="main">
+        <div class 'addItem'>
+            <form class='add'>
+                <label for="add">
+                    <b>Add Pantry Item</b>
+                </label>
+                <input type="text" id="add" placeholder="Item">
+                <input type="text" id="addedNumber" placeholder="number">
+                <input type="text" id="measure" placeholder="Measure: Oz/Lb/cans/etc">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
         <div class='pantry'>
+            <ul id="pantryList">
+
+            </ul>
             <p>List of Pantry Items Here</p>
+
+            <button type="button" id="delete">Delete Selected</button>
         </div>
 
         <div class='recipeSearch'>
-            <form>
+            <form class='search'>
                 <label for="search">
                     <b>Search</b>
                 </label>
