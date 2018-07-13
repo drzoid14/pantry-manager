@@ -1,20 +1,4 @@
-function login() {
-    //Upon successful login from middleware, will 
-    //redirect to homepage
 
-}
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=chicken%2Crice%2Cbean&cuisine=cuban",
-    "method": "GET",
-    "headers": {
-        "x-mashape-key": "EehXJ0iPBnmshdMyiJI0de1hhibTp18MKSyjsnFq4rxv3AQUHH",
-        "accept": "application/json",
-        "cache-control": "no-cache",
-        "postman-token": "bc8f0baa-ac0f-f542-8348-8f1e65e6ecf8"
-    }
-}
 
 function getPantry() {
 
@@ -30,10 +14,10 @@ function getPantry() {
         "headers": {
             "content-type": "application/json",
             "cache-control": "no-cache",
-            "postman-token": "d662a2a3-7c1e-8ae2-0d13-263a8961671d"
+            "postman-token": "d662a2a3-7c1e-8ae2-0d13-263a8961671d",
+            "authorization": `Bearer ${localStorage.authToken}`
         },
-        "processData": false,
-        "data": "{\"id\":\"5b3c21019b225b598c87e24b\",\n\t\"name\":\"chicken\",\n\"amount\": 5\t\n}"
+        "processData": false
     }
 
     $.ajax(settings).done(function (response) {
@@ -88,13 +72,16 @@ function adding(added, addedNumber, measure) {
         "headers": {
             "content-type": "application/json",
             "cache-control": "no-cache",
-            "postman-token": "66f73029-ec0d-be31-07fc-7f9347f9e199"
+            "postman-token": "66f73029-ec0d-be31-07fc-7f9347f9e199",
+            "Authentication": `Bearer ${localStorage.authToken}`
         },
         "processData": false,
         "data": JSON.stringify({
+
             name: added,
             amount: addedNumber,
-            measure: measure
+            measure: measure,
+            user:'User'
         })
 
     }

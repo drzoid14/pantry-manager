@@ -3,10 +3,19 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+
+
 const pantryItemSchema = mongoose.Schema({
     name: String,
     amount: Number,
-    measure: String
+    measure: String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        unique: false,
+        required: [true, 'No User id found']
+    
+    }
 });
 
 
@@ -17,6 +26,7 @@ pantryItemSchema.methods.serialize = function(){
         name: this.name,
         amount: this.amount,
         measure: this.measure
+        
     };
 };
 

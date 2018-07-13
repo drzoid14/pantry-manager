@@ -1,6 +1,6 @@
 'use strict';
 
-const bycrypt=require('bycrypt');
+const bcrypt=require('bcryptjs');
 const mongoose=require('mongoose');
 
 const UserSchema=mongoose.Schema({
@@ -16,17 +16,19 @@ const UserSchema=mongoose.Schema({
     firstName: {type: String, default: ''}
 });
 
-UserSchema.methods.serialize=function() {
-    username=this.username,
-    firstName=this.firstName
-}
+UserSchema.methods.serialize = function() {
+    return {
+      username: this.username || '',
+      firstName: this.firstName || ''
+    };
+  };
 
 UserSchema.methods.validatePassword=function(password) {
-    return bycrypt.compare(password,this.password);
+    return bcrypt.compare(password,this.password);
 }
 
-UserSchema.methods.hashPassword=function(password){
-    return bycrypt.hash(password,10);
+UserSchema.statics.hashPassword=function(password){
+    return bcrypt.hash(password,10);
 }
 
 const User = mongoose.model('User',UserSchema);

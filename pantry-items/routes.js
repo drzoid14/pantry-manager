@@ -1,10 +1,17 @@
 const express = require('express');
 const route = express.Router();
 const { PantryItem } = require('./models');
+const passport=require('passport');
+const jwt = require('jsonwebtoken');
+const jwtAuth = passport.authenticate('jwt', {session: false});
 
-route.get('/', (req, res) => {
+
+
+route.get('/', jwtAuth, (req, res) => {
     PantryItem
-        .find()
+        .find({
+            user: req.user.id
+        })
         .then(items => {
             res.json(items.map(item => item.serialize()));
         })
@@ -37,7 +44,8 @@ route.post('/', (req, res) => {
         .create({
             name: req.body.name,
             amount: req.body.amount,
-            measure: req.body.measure
+            measure: req.body.measure,
+            user: req.user.id
         })
         .then(pantryItem => res.status(201).json(pantryItem.serialize()))
         .catch(err => {

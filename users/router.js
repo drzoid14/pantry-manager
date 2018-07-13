@@ -9,6 +9,9 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
+
+
+router.post('/', jsonParser, (req, res) => {
 const requiredFields = ['username', 'password'];
 const missingField = requiredFields.find(field => !(field in req.body));
 
@@ -42,6 +45,8 @@ if (missingField) {
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
   );
+
+console.log('made it to 1');
 
   if (nonTrimmedField) {
     return res.status(422).json({
@@ -93,11 +98,11 @@ if (missingField) {
     });
   }
 
+console.log('made it to 2');
 
   //builds body for creating a new user
-  let {username, password, firstName = '', lastName = ''} = req.body;
+  let {username, password, firstName = ''} = req.body;
   firstName = firstName.trim();
-  lastName = lastName.trim();
 
   //ensures username is not already taken
   return User.find({username})
@@ -111,6 +116,7 @@ if (missingField) {
           location: 'username'
         });
       }
+console.log('made it to 3');
 
       //hashes the password for new user
       return User.hashPassword(password);
@@ -119,8 +125,7 @@ if (missingField) {
       return User.create({
         username,
         password: hash,
-        firstName,
-        lastName
+        firstName
       });
     })
     .then(user => {
@@ -128,8 +133,19 @@ if (missingField) {
     })
     .catch(err => {
 
+        console.log(err);
+
       if (err.reason === 'ValidationError') {
         return res.status(err.code).json(err);
       }
       res.status(500).json({code: 500, message: 'Internal server error'});
     });
+});
+
+router.get('/', (req, res) => {
+    return User.find()
+      .then(users => res.json(users.map(user => user.serialize())))
+      .catch(err => res.status(500).json({message: 'Internal server error'}));
+  });
+
+module.exports={router};
