@@ -19,6 +19,8 @@ function login(username,password){
       }
       
       $.ajax(settings).done(function (response) {
+          console.log(response);
+          localStorage.user=username;
         localStorage.authToken=response.authToken;
         console.log(localStorage.authToken);
         window.location.assign('./home.html');

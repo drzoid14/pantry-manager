@@ -10,6 +10,7 @@ const pantryItemSchema = mongoose.Schema({
     amount: Number,
     measure: String,
     user: {
+        name: String,
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         unique: false,
@@ -25,11 +26,12 @@ pantryItemSchema.methods.serialize = function(){
         id: this._id,
         name: this.name,
         amount: this.amount,
-        measure: this.measure
+        measure: this.measure,
+        user: this.user
         
     };
 };
 
 const PantryItem = mongoose.model('pantryitem', pantryItemSchema);
-
-module.exports = { PantryItem };
+const User = mongoose.model('pantryitem', pantryItemSchema.user);
+module.exports = { PantryItem, User };

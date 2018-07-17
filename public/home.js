@@ -1,10 +1,10 @@
-
+const STORE = {
+    pantryList: null,
+    recipes: null
+}
 
 function getPantry() {
 
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
 
     var settings = {
         "async": true,
@@ -23,6 +23,7 @@ function getPantry() {
     $.ajax(settings).done(function (response) {
         console.log(response);
         makeList(response);
+        STORE.pantryList = response;
     });
 
 }
@@ -38,6 +39,9 @@ function deletePantry(id) {
         "crossDomain": true,
         "url": `http://localhost:8080/items/${id}`,
         "method": "DELETE",
+        "headers": {
+            "authorization": `Bearer ${localStorage.authToken}`
+        }
     }
 
     $.ajax(settings).done(function (response) {
@@ -48,11 +52,12 @@ function deletePantry(id) {
 }
 
 
-function searching(searchTerm) {
+function searching(searchTerm, cuisine) {
     //Will Put Recipe API code here (3rd party API)
     //to search for the searchterm & current pantry items 
     //
-    localStorage.searchTerm = searchTerm
+    localStorage.cuisine = cuisine;
+    localStorage.searchTerm = searchTerm;
     window.location.assign('./search.html');
     console.log('The Search Term is ' + searchTerm);
 }
@@ -73,15 +78,14 @@ function adding(added, addedNumber, measure) {
             "content-type": "application/json",
             "cache-control": "no-cache",
             "postman-token": "66f73029-ec0d-be31-07fc-7f9347f9e199",
-            "Authentication": `Bearer ${localStorage.authToken}`
+            "authorization": `Bearer ${localStorage.authToken}`
         },
         "processData": false,
         "data": JSON.stringify({
 
             name: added,
             amount: addedNumber,
-            measure: measure,
-            user:'User'
+            measure: measure
         })
 
     }
@@ -109,13 +113,13 @@ function makeList(response) {
     }
 
 }
-$('#delete').click(function(){
+$('#delete').click(function () {
 
-$("input[name=pantryItem]:checked").each((index,input)=>{
-    console.log(input, index)
-    console.log(input.value);
-    deletePantry(input.value);
-})
+    $("input[name=pantryItem]:checked").each((index, input) => {
+        console.log(input, index)
+        console.log(input.value);
+        deletePantry(input.value);
+    })
 
 })
 
@@ -123,8 +127,20 @@ $("input[name=pantryItem]:checked").each((index,input)=>{
 $('.search').submit(function (event) {
     event.preventDefault();
     console.log("hi from the searchBar");
-    let searchTerm = $(`#searchBar`).val();
-    searching(searchTerm);
+    let cuisine = $(`#searchBar`).val();
+    let searchTerm = [];
+
+    $("input[name=pantryItem]:checked").each((index, input) => {
+        const itemFound = STORE.pantryList.find(item => {
+            return item.id == input.value
+        })
+        console.log(itemFound.name);
+        searchTerm.push(itemFound.name)
+
+    })
+
+
+    searching(searchTerm.join(","), cuisine);
 })
 
 $('.add').submit(function (event) {
@@ -133,7 +149,8 @@ $('.add').submit(function (event) {
     let added = $(`#add`).val();
     let addedNumber = $(`#addedNumber`).val();
     let measure = $('#measure').val();
-    console.log(added + " from watcher")
+    console.log(added + " from watcher");
+
     adding(added, addedNumber, measure);
 })
 

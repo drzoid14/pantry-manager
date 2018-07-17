@@ -19,7 +19,8 @@ const UserSchema=mongoose.Schema({
 UserSchema.methods.serialize = function() {
     return {
       username: this.username || '',
-      firstName: this.firstName || ''
+      firstName: this.firstName || '',
+      id:this._id
     };
   };
 

@@ -30,6 +30,6 @@ function signUp(username,password,firstName){
       $.ajax(settings).done(function (response) {
         console.log(response);
         localStorage.authToken=response.authToken ;
-        
+        window.location.assign('./login.html');
          });
 }

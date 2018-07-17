@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express.Router();
-const { PantryItem } = require('./models');
+const { PantryItem, User } = require('./models');
 const passport=require('passport');
 const jwt = require('jsonwebtoken');
 const jwtAuth = passport.authenticate('jwt', {session: false});
@@ -21,7 +21,7 @@ route.get('/', jwtAuth, (req, res) => {
         });
 });
 
-route.get('/:id', (req, res) => {
+route.get('/:id',jwtAuth, (req, res) => {
     PantryItem.findById(req.params.id)
         .then(item => res.json(item.serialize()))
         .catch(err => {
@@ -30,7 +30,7 @@ route.get('/:id', (req, res) => {
         });
 });
 
-route.post('/', (req, res) => {
+route.post('/', jwtAuth, (req, res) => {
     const requiredFields = ['name','amount','measure'];
     for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
@@ -40,6 +40,8 @@ route.post('/', (req, res) => {
             return res.status(400).send(message);
         }
     }
+    console.log(req.user,"From routes.js 43");
+    
     PantryItem
         .create({
             name: req.body.name,
@@ -54,7 +56,7 @@ route.post('/', (req, res) => {
         });
 });
 
-route.delete('/:id', (req, res) => {
+route.delete('/:id',jwtAuth, (req, res) => {
     PantryItem
         .findByIdAndRemove(req.params.id)
         .then(() => {
@@ -66,7 +68,7 @@ route.delete('/:id', (req, res) => {
         });
 });
 
-route.put('/:id', (req, res) => {
+route.put('/:id',jwtAuth, (req, res) => {
 
     if (!(req.params.id && req.params.id === req.body.id)) {
         res.status(400).json({
