@@ -46,4 +46,8 @@ function searching(searchTerm, cuisine) {
 
 }
 
+$('#home').click(function(){
+    window.location.assign('./home.html');
+})
+
 $(window).on("load", searching(searchTerm, cuisine));

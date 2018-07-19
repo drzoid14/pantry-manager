@@ -124,7 +124,7 @@ $('#delete').click(function () {
 })
 
 //gets search term from the search bar and runs
-$('.search').submit(function (event) {
+$('.search').click(function (event) {
     event.preventDefault();
     console.log("hi from the searchBar");
     let cuisine = $(`#searchBar`).val();

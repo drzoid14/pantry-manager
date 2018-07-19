@@ -8,6 +8,11 @@ $('form').submit(function(event){
     signUp(username,password,firstName);
 });
 
+$('#member').click(function(){
+    console.log('You already exist...neat');
+    window.location.assign('./login.html');
+})
+
 function signUp(username,password,firstName){
     var settings = {
         "async": true,
