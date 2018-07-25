@@ -4,12 +4,16 @@
 <head>
     <title>Home</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+    <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
-    <header role="banner">Pantry Manager</header>
+    <header role='banner' id='header'>
+        <h1>Cook At Home</h1>
+        <h3>The Online Pantry Manager and Recipe Finder</h3>
+    </header>
     <main role="main">
+        <button type="button" id="logout">Sign Out</button>
         <div class 'addItem'>
             <form class='add'>
                 <label for="add">
@@ -22,14 +26,18 @@
             </form>
         </div>
         <div class='pantry'>
-            <ul id="pantryList">
+            <div class='list'>
+                <ul id="pantryList">
 
-            </ul>
-            <p>List of Pantry Items Here</p>
+                </ul>
+                <p>List of Pantry Items Here</p>
 
-            <button type="button" id="delete">Delete Selected</button>
+                <button type="button" id="delete">Delete Selected</button>
+            </div>
+
+            <div class='pictureList'></div>
+
         </div>
-
         <div class='recipeSearch'>
             <form class='search'>
                 <label for="search">

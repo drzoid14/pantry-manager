@@ -2,42 +2,38 @@
 <html lang="en">
 
 <head>
-    <title>Pantry Manager</title>
+    <title>Cook At Home</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
-    
-    <header role='banner'>Pantry Manager</header>
+
+    <header role='banner'>
+        <h1>Cook At Home</h1>
+        <h3>The Online Pantry Manager and Recipe Finder</h3>
+    </header>
     <main role='main'>
-        <form action="action_page.php">
-            <div class="container">
-                <span class = "title">
-                    <b>Sign-Up Form</b>
-                </span>
-            </br>
-                <label for="name" id="nameLabel">
-                    <b>First Name</b>
-                </label>
-                <input type="text" id="firstName" placeholder="What Should We Call You?" name="firstName" required>
-            </br>
-                <label for="uname">
-                    <b>Username</b>
-                </label>
-                <input type="text" id="username" placeholder="Username" name="uname" required>
-            </br>
-                <label for="psw">
-                    <b>Password</b>
-                </label>
-                <input type="password" id = "psw" placeholder="Min 10 Characters" name="psw" required>
-            </br>
-                <button type="submit">Join Now</button>
-            </div>
-        </form>
-    </br>
-        <div class="member">
+
+        <div class='top'>
+            <h1>Welcome to Cook At Home!</h1>
+            <h3>Take control of your pantry and enjoy family meals more often</h3>
+        </div>
+
+        <div class='mid'>
+            <h5>
+                With our pantry manager, you don't have to go digging to see what you have.
+                Just choose the ingredients you want to use, search for what you would like to eat,
+                and enjoy a new recipe!
+            </h5>
+        </div>
+
+        <div class='bottom'></div>
+
+        <div class="buttons">
             <button type="button" id='member'>Already a Member?</button>
+            <button type='button' id='signup'>Ready to Join?</button>
         </div>
     </main>
 </body>

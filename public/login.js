@@ -35,3 +35,7 @@ $('form').submit(function (event) {
 
     login(username, password);
 })
+
+$('.create').click(function(){
+    window.location.assign('./signup.html')
+})

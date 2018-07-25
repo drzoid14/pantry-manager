@@ -2,24 +2,35 @@
 <html lang="en">
 
 <head>
-    <title>Pantry Manager</title>
+    <title>Cook At Home</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
 
-    <header role='banner'>Pantry Manager</header>
+    <header role='banner'>
+        <h1>Cook At Home</h1>
+        <h3>The Online Pantry Manager and Recipe Finder</h3>
+    </header>
+
     <main role='main'>
         <form action="login">
+            <h3>Sign In</h3>
             <label for="usn">
                 <b>Username</b>
             </label>
             <input type="text" name="username" id="usn" placeholder="Username">
+            </br>
             <label for="psw">Password</label>
             <input type="password" name="psw" id="psw" placeholder="Password">
+            </br>
             <button type="submit">Login</button>
         </form>
+    </br>
+    <button type="button" class='create'>Sign Up Here</button>
     </main>
+
     <script src="login.js"></script>
 </body>
 

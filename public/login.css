@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+}
+
+header {
+    height: 15%;
+    margin-top: 0;
+    text-align: center;
+}
+
+main {
+    text-align: center;
+    height: 85%;
+    margin-bottom: 0;
+    display: block;
+}
+
+form {
+    text-align: center;
+    display: block;
+    max-width: 50%;
+    border: black 1px solid;
+    margin-left:25%;
+    font-size:25px
+}
+
+label {
+    left: 0;
+    display:inline-block;
+}
+
+input {
+    margin-top: 20px;
+    font-size:25px;
+    border:1px lightgray solid;
+}
+
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px 20px;
+    font-size:20px;
+}

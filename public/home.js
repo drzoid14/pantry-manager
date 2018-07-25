@@ -3,6 +3,53 @@ const STORE = {
     recipes: null
 }
 
+
+function makePicture(input){
+
+$('.pictureList').append(
+    `<img class='picImage' src="https://spoonacular.com/cdn/ingredients_100x100/${input.image}" alt="${input.description}">`
+)
+
+}
+
+function getPicture(query) {
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?query=${query}`,
+        "method": "GET",
+        "headers": {
+          "x-mashape-key": "EehXJ0iPBnmshdMyiJI0de1hhibTp18MKSyjsnFq4rxv3AQUHH",
+          "accept": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "fb51ae8b-e00c-e5b2-893a-0407999f4311"
+        }
+      }
+      
+      $.ajax(settings).done(function (response) {
+        console.log("checklist", response);
+        makePicture(response[0]);
+      });
+
+}
+
+function getItem() {
+    $('.pictureList').empty();
+
+    $("input[name=pantryItem]:checked").each((index, input) => {
+        const itemFound = STORE.pantryList.find(item => {
+            return item.id == input.value
+        })
+        console.log(itemFound.name);
+        getPicture(itemFound.name);
+
+    })
+
+
+
+}
+
 function getPantry() {
 
 
@@ -69,7 +116,7 @@ function adding(added, addedNumber, measure) {
     console.log(theList[0])
     let x = 1;
 
-    var settings = {
+    var settings = { 
         "async": true,
         "crossDomain": true,
         "url": "http://localhost:8080/items/",
@@ -108,7 +155,7 @@ function makeList(response) {
         let id = response[i].id;
 
         $('#pantryList').append(`
-    <li><input name="pantryItem" type="checkbox" value="${id}">${amount} ${measure} ${item}</li> 
+    <li><input onchange="getItem()" name="pantryItem" type="checkbox" value="${id}"/> - <input onchange="change('${id}',event.target.value)" value="${amount}"/> ${measure} ${item}</li> 
     `)
     }
 
@@ -123,8 +170,33 @@ $('#delete').click(function () {
 
 })
 
+function change(id,amount){
+console.log(id,amount);
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": `http://localhost:8080/items/${id}`,
+    "method": "PUT",
+    "headers": {
+      "content-type": "application/json",
+      "authorization": `Bearer ${localStorage.authToken}`,
+      "cache-control": "no-cache",
+      "postman-token": "bb1904da-e4ef-407a-c788-e4c55d5abbef"
+    },
+    "processData": false,
+    "data": JSON.stringify({
+        id: id,
+        amount: amount
+    })
+  }
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+}
+
 //gets search term from the search bar and runs
-$('.search').click(function (event) {
+$('.search').submit(function (event) {
     event.preventDefault();
     console.log("hi from the searchBar");
     let cuisine = $(`#searchBar`).val();
@@ -153,5 +225,12 @@ $('.add').submit(function (event) {
 
     adding(added, addedNumber, measure);
 })
+
+$('#logout').click(function(){
+    console.log('Signing Out');
+    localStorage.clear();
+    window.location.assign('./login.html');
+})
+
 
 $(window).on("load", getPantry());
