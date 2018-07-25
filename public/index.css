@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    top: 0;
+}
+
+main {
+    height: 100%;
+    margin: 0;
+}
+
+.top {
+    background-image: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=08cb0ebaadb99995755a696a9710b229&auto=format&fit=crop&w=1531&q=80");
+    height: 45%;
+    background-size: 100%;
+    display: flex;
+    text-align: right;
+    font-family: 'Acme', sans-serif;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 3px solid rgb(60, 60, 95);
+}
+
+.title {
+    position: relative;
+    right: 0;
+    max-width: 55%;
+    text-align: center;
+    border-radius: 10%;
+    color: rgb(60, 60, 95);
+    margin-right: 20px;
+}
+
+h1 {
+    margin-top: 0;
+    padding-right: 10%;
+    font-size: 5vw;
+}
+
+h3 {
+    font-size: 3vw;
+    padding-right: 10%;
+}
+
+h5 {
+    margin-top: 0;
+    font-size: 2.25vw;
+    font-family: 'Raleway', sans-serif;
+}
+
+.mid {
+    height: 45%;
+    background-image: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4fa061122a5ce899fcb5454dae8dbe99&auto=format&fit=crop&w=750&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.description {
+    width: 35%;
+    color: rgb(5, 61, 3);
+    box-shadow: rgb(247, 249, 252);
+    background-color: rgba(240, 240, 240, .5);
+    padding-top: 30px;
+    padding-left: 30px;
+    height: 100%;
+}
+
+.bottom {
+    background-color: rgba(227, 232, 236);
+    display: flex;
+    justify-content: center;
+    height: 10%;
+    width: 100%;
+}
+
+.buttons {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    width: 30%;
+    font-size: 25px;
+    font-family: 'Raleway',sans-serif;
+    margin-left:20px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+@media only screen and (max-width:780px) {
+    h1 {
+        font-size: 30px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size:15px;
+        width:40%;
+    }
+
+    .description {
+        width:100%;
+    }
+
+
+}

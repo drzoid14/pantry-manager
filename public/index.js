@@ -1,7 +1,7 @@
-$('#member').click(function() {
+$('#member').click(function () {
     window.location.assign('./login.html')
 })
 
-$('#signup').click(function(){
+$('#signup').click(function () {
     window.location.assign('./signup.html')
 })
