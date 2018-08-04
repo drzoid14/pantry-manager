@@ -60,7 +60,7 @@ h5 {
 
 .mid {
     height: 45%;
-    background-image: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4fa061122a5ce899fcb5454dae8dbe99&auto=format&fit=crop&w=750&q=80');
+    background-image: url('https://github.com/drzoid14/pantry-manager/blob/master/cropped-unsplash.jpg?raw=true');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -72,6 +72,7 @@ h5 {
     background-color: rgba(240, 240, 240, .5);
     padding-top: 30px;
     padding-left: 30px;
+    padding-right:30px;
     height: 100%;
 }
 

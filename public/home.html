@@ -5,32 +5,47 @@
     <title>Home</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="animate.css" media="screen,projection" />
 </head>
 
 <body>
     <header role='banner' id='header'>
-        <h1>Cook At Home</h1>
-        <h3>The Online Pantry Manager and Recipe Finder</h3>
+        <div class="dropdown">
+                <i class="material-icons dropbtn">
+                        menu
+                        </i>
+            
+            <div class="dropdown-content">
+                <a href="./home.html">Home</a>
+                <a href="./login.html" id='logout'>Sign Out</a>
+                
+            </div>
+        </div>
+        <div class="titles">
+            <h1 style="margin-top:0; margin-bottom:0;">Cook At Home</h1>
+            <h3>The Online Pantry Manager and Recipe Finder</h3>
+        </div>
     </header>
     <main role="main">
-        <button type="button" id="logout">Sign Out</button>
-        <div class 'addItem'>
+        <div class='addItem'>
             <form class='add'>
                 <label for="add">
                     <b>Add Pantry Item</b>
                 </label>
                 <input type="text" id="add" placeholder="Item">
-                <input type="text" id="addedNumber" placeholder="number">
+                <input type="number" id="addedNumber" placeholder="number">
                 <input type="text" id="measure" placeholder="Measure: Oz/Lb/cans/etc">
                 <button type="submit">Submit</button>
             </form>
         </div>
         <div class='pantry'>
             <div class='list'>
-                <ul id="pantryList">
+                <form action='#' id="pantryList">
 
-                </ul>
-                <p>List of Pantry Items Here</p>
+                </form>
+
 
                 <button type="button" id="delete">Delete Selected</button>
             </div>
@@ -50,6 +65,7 @@
 
     </main>
     <script src="home.js"></script>
+
 
 </body>
 

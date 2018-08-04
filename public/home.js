@@ -71,6 +71,7 @@ function getPantry() {
         console.log(response);
         makeList(response);
         STORE.pantryList = response;
+        $('.add')[0].reset();
     });
 
 }
@@ -153,10 +154,23 @@ function makeList(response) {
         let amount = response[i].amount;
         let measure = response[i].measure;
         let id = response[i].id;
-
+        
         $('#pantryList').append(`
-    <li><input onchange="getItem()" name="pantryItem" type="checkbox" value="${id}"/> - <input onchange="change('${id}',event.target.value)" value="${amount}"/> ${measure} ${item}</li> 
-    `)
+            <p>
+                <label>
+                <i class="material-icons" onchange="getItem()" name="pantryItem" type="checkbox" value="${id}">
+check_box_outline_blank
+</i>
+                
+                <span>
+                     - <input type="number" onchange="change('${id}',event.target.value)" value="${amount}"/> ${measure} ${item}
+               </span>
+                    </label>
+            </p>
+
+    
+
+                    `)
     }
 
 }

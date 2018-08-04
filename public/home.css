@@ -5,6 +5,18 @@
 html {
     height: 100%;
     margin:0;
+    background-image:url('https://images.unsplash.com/photo-1506143925201-0252c51780b0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4df73c9d1ccc60fef7374661670aaa87&auto=format&fit=crop&w=675&q=80');
+    background-size:cover;
+}
+
+
+header {
+    background-image: url("https://images.unsplash.com/photo-1454944338482-a69bb95894af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4ee2b8d973d5c1051b9e7f34d8fc6869&auto=format&fit=crop&w=752&q=80");
+    height:20%;
+    font-family:'Acme', sans-serif;
+    color: rgb(60, 60, 95);
+    border-bottom:4px solid rgb(60, 60, 95);
+    text-align:center;
 }
 
 body {
@@ -15,11 +27,20 @@ body {
 header {
     height:15%;
     text-align: center;
+    font-family: 'Acme', sans-serif;
+}
+
+li{
+    margin-bottom:10px;
 }
 
 h1 {
     margin-top:0;
     padding-top:20px;
+}
+
+h3 {
+    margin-top:5px;
 }
 
 main {
@@ -28,19 +49,124 @@ main {
     justify-content:space-around;
     flex-direction:column;
     align-items:center;
+    font-family: "Raleway", sans-serif
 
+}
+
+.addItem {
+    width:100%;
+    font-size:30px;
+    text-align: center;
 }
 
 .pantry{
     
-    align-self:flex-start;
+    align-self:center;
     display:inline-block;
     width:90%;
+    
+    
+}
+.list {
+    width:50%;
+    display:inline-block;
+}
+
+#pantryList {
+    font-size:20px;
+    font-weight:bold;
+
+}
+
+.picImage {
+    display:inline-block;
+    margin:20px;
+    position:relative;
+    top:0;
+}
+.pictureList {
+    display:inline-block;
+    max-width:45%;
+    background-color:rgba(255, 255, 255, 1);
 }
 
 #recipeSearch {
     align-self:flex-end
 }
+
+input {
+  font-size:20px;
+}
+
+input[type=number] {
+    width:10%;
+    background-color: rgba(255,255,255,0.0);
+    color:black;
+    border-top:none;
+    font-weight: bold;
+}
+
+input[type=text] {
+    width:25%;
+    background-color:rgba(255,255,255,0.0);
+    font-weight:bolder;
+}
+
+label {
+    font-size:20px;
+}
+
+button {
+    font-size:20px;
+    padding:5px 10px
+}
+
+.recipeSearch {
+    width:100%;
+    text-align:center;
+}
+
+.dropbtn {
+    background-color:rgba(255,255,255,0.0);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: absolute;
+    top:0;
+    right:30px;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    text-align:left;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #848d84;}
 
 
     

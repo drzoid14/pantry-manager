@@ -7,26 +7,44 @@
     <title>Search Results</title>
     <link rel="stylesheet" href="search.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Acme|Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link type="text/css" rel="stylesheet" href="/animate.css" media="screen,projection" />
 </head>
 <main>
 
     <body>
         <header role='banner'>
-            <h1>Cook At Home</h1>
-            <h3>The Online Pantry Manager and Recipe Finder</h3>
+            <div class="dropdown">
+                <i class="material-icons dropbtn">
+                    menu
+                </i>
+
+                <div class="dropdown-content">
+                    <a href="./home.html">Home</a>
+                    <a href="./login.html" id='logout'>Sign Out</a>
+
+                </div>
+            </div>
+            <div class='titles'>
+
+                <h1 class='bannerHeader'>Cook At Home</h1>
+                <h3 class='subHead'>The Online Pantry Manager and Recipe Finder</h3>
+            </div>
         </header>
         <main role="main">
-            <button type="button" id="logout">Sign Out</button>
-            <button type="button" id='home'>Home</button>
-            <div class="searchResults">
-                
-
+            <div class="searchResults"></div>
+            <div class='buttonHolder pages' style="font-size:25px">
+                <strong>
+                    <button type="button" class="prev">Previous Page</button>
+                    <button type="button" class="next">Next Page</button>
+                </strong>
             </div>
-            <button type="button" class="prev">Previous Page</button>
-            <button type="button" class="next">Next Page</button>
         </main>
         <script src="search.js"></script>
+
+
 
     </body>
 </main>
