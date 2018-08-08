@@ -19,17 +19,14 @@ header {
 }
 
 .bannerHeader {
-
     margin-top: 0;
     text-align: center;
     margin-bottom: 0px;
 }
 
 .subHead {
-
     text-align: center
 }
-
 
 main {
     height: 100%;
@@ -42,7 +39,8 @@ img {
 
 body {
     height: 100%;
-    margin:0;
+    margin: 0;
+    font-family:'Raleway', sans-serif;
 }
 
 .searchResults {
@@ -57,8 +55,8 @@ body {
     width: 80%;
     margin-left: 10%;
     margin-bottom: 30px;
-    background-color:white;
-    padding:10px;
+    background-color: white;
+    padding: 10px;
 }
 
 .card-content {
@@ -67,8 +65,8 @@ body {
 }
 
 .faders {
-    width:65%;
-    padding:10px;
+    width: 65%;
+    padding: 10px;
 }
 
 .fadeInUp {
@@ -115,35 +113,39 @@ p {
 }
 
 .card-content {
-    background-color:white
+    background-color: white
 }
 
-.sum{
-    margin-top:20px;
+.card-image-title {
+    display: none;
+    margin: 0 auto;
+    font-size: 25px;
 }
+
+.sum {
+    margin-top: 20px;
+}
+
 .open, .close {
-    float:right;
+    float: right;
 }
-
 
 .dropdown {
     position: absolute;
-    top:0;
-    left:35px;
+    top: 0;
+    left: 35px;
     display: inline-block;
 }
-
 
 .dropdown-content {
     display: none;
     position: absolute;
-    text-align:left;
+    text-align: left;
     background-color: #f1f1f1;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    font-size:20px;
+    font-size: 20px;
 }
-
 
 .dropdown-content a {
     color: black;
@@ -152,20 +154,31 @@ p {
     display: block;
 }
 
+.dropdown-content a:hover {
+    background-color: rgb(247, 181, 181);
+}
 
-.dropdown-content a:hover {background-color: rgb(247, 181, 181);}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #848d84;}
+.dropdown:hover .dropbtn {
+    background-color: #848d84;
+}
 
 @media screen and (max-width:425px) {
-    .card-content {
-        display:none;
+    a:link {
+        text-decoration:none !important;
     }
-
+    .card-content {
+        display: none !important;
+    }
     .card-image {
-        width:90% !important;
+        width: 100% !important;
+    }
+    .card-image-title {
+        display: block;
+        margin: 0 auto;
+        background-color:white;
     }
 }

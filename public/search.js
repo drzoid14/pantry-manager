@@ -1,7 +1,4 @@
 console.log(localStorage.searchTerm);
-$('.searchResults').html(`
-<p>${localStorage.searchTerm}</p>
-`);
 
 let page = 0;
 
@@ -71,6 +68,9 @@ function renderResults(response) {
         <div class="card-image" 
                 style="background-image:url(https://spoonacular.com/recipeImages/${results[i].image}); 
                 display:inline-block; width:35%; background-size:cover; margin:0;">
+                    <span class="card-image-title activator grey-text text-darken-4">
+                        <a href="https://spoonacular.com/recipes/${html}" target="_blank">${results[i].title}</a>
+                    </span>
         </div>
         <div class="card-content" style="display:inline-block; width:60%; height:100%;">
             <span class="card-title activator grey-text text-darken-4">${results[i].title}<i class="open material-icons right">more_vert</i></span>
