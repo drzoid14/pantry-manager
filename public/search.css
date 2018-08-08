@@ -129,7 +129,7 @@ p {
 .dropdown {
     position: absolute;
     top:0;
-    right:35px;
+    left:35px;
     display: inline-block;
 }
 
@@ -141,6 +141,7 @@ p {
     background-color: #f1f1f1;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    font-size:20px;
 }
 
 
@@ -158,3 +159,13 @@ p {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #848d84;}
+
+@media screen and (max-width:425px) {
+    .card-content {
+        display:none;
+    }
+
+    .card-image {
+        width:90% !important;
+    }
+}

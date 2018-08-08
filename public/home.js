@@ -158,12 +158,13 @@ function makeList(response) {
         $('#pantryList').append(`
             <p>
                 <label>
-                <i class="material-icons" onchange="getItem()" name="pantryItem" type="checkbox" value="${id}">
-check_box_outline_blank
-</i>
+                <i class="container" >
+                    <input type="checkbox" name="pantryItem" value="${id}"  onchange="getItem()">
+                    <span class="checkmark"></span>
+                </i>
                 
                 <span>
-                     - <input type="number" onchange="change('${id}',event.target.value)" value="${amount}"/> ${measure} ${item}
+                     - <input type="number" class="pantryCount" onchange="change('${id}',event.target.value)" value="${amount}"/> ${measure} ${item}
                </span>
                     </label>
             </p>
