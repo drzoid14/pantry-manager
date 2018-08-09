@@ -4,7 +4,7 @@ function login(username,password){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:8080/login",
+        "url": "/login",
         "method": "POST",
         "headers": {
           "content-type": "application/json",

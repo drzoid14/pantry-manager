@@ -56,7 +56,7 @@ function getPantry() {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:8080/items/",
+        "url": "/items/",
         "method": "GET",
         "headers": {
             "content-type": "application/json",
@@ -85,7 +85,7 @@ function deletePantry(id) {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `http://localhost:8080/items/${id}`,
+        "url": `/items/${id}`,
         "method": "DELETE",
         "headers": {
             "authorization": `Bearer ${localStorage.authToken}`
@@ -120,7 +120,7 @@ function adding(added, addedNumber, measure) {
     var settings = { 
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:8080/items/",
+        "url": "/items/",
         "method": "POST",
         "headers": {
             "content-type": "application/json",
@@ -190,7 +190,7 @@ console.log(id,amount);
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": `http://localhost:8080/items/${id}`,
+    "url": `/items/${id}`,
     "method": "PUT",
     "headers": {
       "content-type": "application/json",

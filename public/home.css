@@ -24,6 +24,12 @@ body {
     font-family:'Raleway', sans-serif;
 }
 
+#addButton {
+    display:block;
+    margin:0 auto;
+    margin-top:15px;
+}
+
 header {
     height: 15%;
     text-align: center;
@@ -96,6 +102,9 @@ main {
 
 input {
     font-size: 20px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
 }
 
 #addedNumber {

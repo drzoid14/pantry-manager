@@ -17,7 +17,7 @@ function signUp(username,password,firstName){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:8080/pantry/users",
+        "url": "/pantry/users",
         "method": "POST",
         "headers": {
           "content-type": "application/json",
