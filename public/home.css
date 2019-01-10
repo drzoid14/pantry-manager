@@ -16,7 +16,11 @@ header {
     color: rgb(60, 60, 95);
     border-bottom: 4px solid rgb(60, 60, 95);
     text-align: center;
+    width:100%;
+    position:fixed;
+    z-index:999;
 }
+
 
 body {
     height: 100%;
@@ -49,6 +53,7 @@ h3 {
 }
 
 main {
+    padding-top:15%;
     height: 85%;
     display: flex;
     justify-content: space-around;
@@ -61,6 +66,7 @@ main {
     width: 100%;
     font-size: 30px;
     text-align: center;
+    padding-top:200px
 }
 
 .pantry {
@@ -88,6 +94,7 @@ main {
     margin: 20px;
     position: relative;
     top: 0;
+    max-width:100px;
 }
 
 .pictureList {
@@ -285,6 +292,7 @@ button {
     }
     .addItem {
         display: block;
+        padding-top:250px
     }
     form {
         display: block;

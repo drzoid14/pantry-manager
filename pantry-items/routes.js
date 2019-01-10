@@ -17,7 +17,7 @@ route.get('/', jwtAuth, (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            res.statusCode(500).json({ error: 'things aren\'t adding up' });
+            res.statusCode(500).json({ error: 'Err in Pantry Item GET' });
         });
 });
 
@@ -26,7 +26,7 @@ route.get('/:id',jwtAuth, (req, res) => {
         .then(item => res.json(item.serialize()))
         .catch(err => {
             console.error(err);
-            res.status(500).json({ error: 'things aren\'t adding up' });
+            res.status(500).json({ error: 'ERR in Pantry Item GET ID' });
         });
 });
 
@@ -52,7 +52,7 @@ route.post('/', jwtAuth, (req, res) => {
         .then(pantryItem => res.status(201).json(pantryItem.serialize()))
         .catch(err => {
             console.error(err);
-            res.status(500).json({ error: 'That was not supposed to happen' });
+            res.status(500).json({ error: 'ERR in Create' });
         });
 });
 
@@ -64,7 +64,7 @@ route.delete('/:id',jwtAuth, (req, res) => {
         })
         .catch(err => {
             console.error(serr);
-            res.status(500).json({ error: 'Something went horribly wrong' });
+            res.status(500).json({ error: 'ERR in Delete' });
         });
 });
 

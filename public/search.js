@@ -57,7 +57,7 @@ function renderResults(response) {
     else {
         $('.next').show();
     }
-
+console.log(results)
     for (i = 0; i < results.length; i++) {
         let html = results[i].image.split('.').slice(0, -1).join('.')
         console.log('THE HTML IS',html)
@@ -69,13 +69,21 @@ function renderResults(response) {
                 style="background-image:url(https://spoonacular.com/recipeImages/${results[i].image}); 
                 display:inline-block; width:35%; background-size:cover; margin:0;">
                     <span class="card-image-title activator grey-text text-darken-4">
-                        <a href="https://spoonacular.com/recipes/${html}" target="_blank">${results[i].title}</a>
+                    <h3>${results[i].title}</h3>
+
+
+                       <!--- <a href="https://spoonacular.com/recipes/${html}" target="_blank">${results[i].title}</a> ---!>
+
+
                     </span>
         </div>
         <div class="card-content" style="display:inline-block; width:60%; height:100%;">
             <span class="card-title activator grey-text text-darken-4">${results[i].title}<i class="open material-icons right">more_vert</i></span>
             <p class='sum' id="${results[i].id}" style="overflow:hidden; max-height:85%;"></p>
-            <p><a href="https://spoonacular.com/recipes/${html}" target="_blank"> Try This Recipe</a></p>
+            <p>
+            <!--- <a href="https://spoonacular.com/recipes/${html}" target="_blank"> Try This Recipe</a> ---!>
+            
+            </p>
         </div>
         <div class="faders fadeInUp">
             <span class="card-title grey-text text-darken-4">${results[i].title}<i class="material-icons right close">close</i></span>
