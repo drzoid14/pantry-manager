@@ -5,14 +5,18 @@
 I always like to try new recipes, but end up either having to buy new ingredients, or making the same things repeatedly.  This app was dreamt up to learn new recipes with items available in your pantry.
 
 <img src="screenshots/landing-page.PNG" width=300 alt="landing page">
+<br />
 
 <img src="screenshots/sign-up-page.PNG" width=300 alt="sign up page">
+<br />
 
 <img src="screenshots/pantry-page.PNG" width=300 alt="pantry page">
 This page keeps track of all the items in your pantry, where you can edit the amount.  You can use the search bar to include other items or phrases, or click on the items in your pantry to search for them.
+<br />
 
 <img src="screenshots/recipe-search-page.PNG" width=300 alt="recipe search page">
 Searching for recipes will give you recipe cards with two sides of information.
+<br />
 
 ## API Documentation
 This app uses a simple Create, Read, Update, Delete (CRUD) API using JSON Web Authentication to manage the pantry.  The recipes come from the Spoonacular API (currently having issues where the recipes returned from the API search do not exist on the Spoonacular website. Trying to find another Recipe Search API.
